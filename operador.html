@@ -34,6 +34,12 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="active">
+                        <a href="#">Livros</a>
+                    </li>
+                    <li>
+                        <a href="doar.html">Doar</a>
+                    </li>
                     <!--OPÇÃO LOGOUT-->
                     <li id="optLogout" class="nav-item">
                         <a class="nav-link" href="#">Logout</a>
@@ -75,7 +81,9 @@
                     <option value="">Biblioteca</option>
                     <option value=""></option>
                     <option value=""></option>
-                </select><br><br>
+                </select>
+                <br>
+                <br>
                 <button> Filtrar </button>
             </div>
 
@@ -89,81 +97,10 @@
             </div>
 
             <div class="col-sm-12 text-left">
-                <hr>
+
             </div>
             <br>
-
-            <div class="col-sm-12 text-left">
-                <h2>Doar</h2>
-                <form action="/action_page.php" id="formdoar">
-                    <input type="text" id="fname" placeholder="Título do livro">
-                    <br>
-                    <br>
-                    <label for="furl">Link da capa</label>
-                    <input type="url" id="fcapa">
-                    <br>
-                    <br>
-                    <textarea rows="4" cols="25" id="fdescricao" placeholder="Descrição"></textarea>
-                    <br>
-                    <br>
-                    <input type="text" id="fautores" placeholder="Autores">
-                    <br>
-                    <br>
-                    <label for="fdata">Data de Lançamento</label>
-                    <input type="date" id="fdata" placeholder="Data de Lançamento" max="2018-12-31">
-                    <br>
-                    <br>
-                    <select id="genero" name="genero">
-                        <option value="">Género</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Infantil">Infantil</option>
-                        <option value="Poesia">Poesia</option>
-                        <option value="Historia">História</option>
-                        <option value="Terror">Terror</option>
-                        <option value="Ficcao">Ficção</option>
-                        <option value="Cientificos">Científico</option>
-                        <option value="Policial">Policial</option>
-                    </select>
-                    <br>
-                    <br>
-                    <input type="text" id="ftag" placeholder="Tags">
-                    <br>
-                    <br>
-                    <input type="text" id="feditora" placeholder="Editora">
-                    <br>
-                    <br>
-                    <label for="fpaginas">Nº de Páginas</label>
-                    <input type="number" id="fpaginas">
-                    <br>
-                    <br>
-                    <select id="festado" name="genero">
-                        <option value="">Estado</option>
-                        <option value="Bom">Bom</option>
-                        <option value="Aceitavel">Aceitável</option>
-                        <option value="Fraco">Fraco</option>
-                    </select>
-                    <br>
-                    <br>
-                    <input type="text" id="fnome" placeholder="Nome do doador">
-                    <br>
-                    <br>
-                    <label for="fdataDoacao">Data de doação</label>
-                    <input type="date" id="fdataDoacao" max="2018-12-31">
-                    <br>
-                    <br>
-                    <label for="fcodigo">Código da Biblioteca</label>
-                    <input type="number" id="fcodigo">
-                    <br>
-                    <br>
-                    <br>
-                    <button type="submit">Doar</button>
-                    <br>
-                    <br>
-                </form>
-            </div>
         </div>
-
     </div>
 
 </body>
