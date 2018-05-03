@@ -5,6 +5,10 @@
     border-radius: 0;
 }
 
+body {
+    background-color: #f2f2f2;
+}
+
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
 .row.content {
@@ -37,21 +41,20 @@ button:hover {
     background-color: #00bfb2;
 }
 
-input[type=text] {
-    
-}
+input[type=text] {}
 
 * {
     box-sizing: border-box;
 }
 
-input[type=text], select, textarea {
+input[type=text],
+select,
+textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
-    
 }
 
 label {
@@ -78,6 +81,7 @@ label {
 }
 
 /* Clear floats after the columns */
+
 .row:after {
     content: "";
     display: table;
@@ -85,12 +89,16 @@ label {
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
+    .col-25,
+    .col-75,
+    input[type=submit] {
         width: 100%;
         margin-top: 0;
     }
 }
+
 /* On small screens, set height to 'auto' for sidenav and grid */
 
 @media screen and (max-width: 767px) {
