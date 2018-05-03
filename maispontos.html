@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BiblioStreet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Icon da barra de separadores-->
+    <link rel="icon" href="img/favicon.ico" type="icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Invoca a estilização em css-->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <!--Custom JS-->
+    <script src="js/index.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img width="150" height="42" src="img/learning.png" alt="">
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="dropdown; active">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Livros
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="recentes.html">mais recentes</a>
+                            </li>
+                            <li>
+                                <a href="#">mais pontuados</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--OPÇÃO LOGIN-->
+                    <li id="optLogin">
+                        <a href="#" data-toggle="modal" data-target="#login-modal">
+                            <span class="glyphicon glyphicon-log-in"></span> Iniciar Sessão</a>
+                    </li>
+                    <!--OPÇÃO LOGOUT-->
+                    <li id="optLogout" class="nav-item">
+                        <a class="nav-link" href="#">Logout</a>
+                    </li>
+                    <!--OPÇÃO HI-->
+                    <li id="optHi" class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--LOGIN MODAL-->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Inicie sessão com a sua conta</h1>
+                <br>
+                <form id="frmLogin">
+                    <input type="text" name="mail" placeholder="Email" id="inputLoginEmail">
+                    <input type="password" name="pass" placeholder="Password" id="inputLoginPassword">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Iniciar Sessão">
+                </form>
+
+                <div class="login-help">
+                    <a href="#" data-toggle="modal" data-target="#registoModal" class="nav-link">Registar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL PARA REGISTO-->
+    <div class="modal fade" id="registoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Registe-se</h1>
+                <br>
+                <form id="frmRegister">
+                    <input required type="text" class="form-control" id="inputName" placeholder="nome">
+                    <input required type="email" class="form-control" id="inputEmail" placeholder="email">
+                    <br>
+                    <input required minlength="5" type="password" class="form-control" id="inputPassword1" placeholder="password">
+                    <input required minlength="5" type="password" class="form-control" id="inputPassword2" placeholder="password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Registar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container text-center" id="home">
+        <div class="row content">
+            <div class="col-sm-12 text-left">
+                <h3>Livros mais pontuados</h3>
+                <hr>
+            </div>
+            <div class="col-sm-12 text-left">
+                <div id="maispontuados">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
