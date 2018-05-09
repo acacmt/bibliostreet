@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/index.css">
 
+    <!--Custom JS-->
+    <script src="js/index.js"></script>
+    <script src="js/log.js"></script>
+
 </head>
 
 <body>
@@ -35,11 +39,35 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active">
-                        <a href="#">Livros</a>
-                    </li>
                     <li>
-                        <a href="doar.html">Doar</a>
+                        <a href="admin.html">Livros</a>
+                    </li>
+                    <li class="dropdown; active">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configurações
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="confbiblio.html">Bibliotecas</a>
+                            </li>
+                            <li>
+                                <a href="confcategorias.html">Categorias de livros</a>
+                            </li>
+                            <li>
+                                <a href="#">Tags de livros</a>
+                            </li>
+                            <li>
+                                <a href="confusers.html">Gestão de utilizadores</a>
+                            </li>
+                            <li>
+                                <a href="confoutras.html">Outras configurações</a>
+                            </li>
+                        </ul>
+                    </li>
+                     <!--OPÇÃO LOGIN-->
+                     <li id="optLogin">
+                        <a href="#" data-toggle="modal" data-target="#login-modal">
+                            <span class="glyphicon glyphicon-log-in"></span> Iniciar Sessão</a>
                     </li>
                     <!--OPÇÃO LOGOUT-->
                     <li id="optLogout" class="nav-item">
@@ -52,56 +80,21 @@
         </div>
     </nav>
 
-    <div class="container">
-
+    <div class="container text-center">
         <div class="row content">
             <div class="col-sm-12 text-left">
-                <h2>Livros</h2>
+                <h2>Tags de livros</h2>
+                <form action="/action_page.php" id="formbiblio">
+                    <label for="ftag">Código da tag</label>
+                    <input type="number" id="ftag">
+                    <input type="text" id="ftag" placeholder="Descrição da tag">
+                    <br>
+                    <br>
+                    <button type="submit">Configurar</button>
+                    <br>
+                    <br>
+                </form>
             </div>
-            <div class="col-sm-10 text-left">
-                <select id="filGenero">
-                    <option value="">Género</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Infantil">Infantil</option>
-                    <option value="Poesia">Poesia</option>
-                    <option value="Historia">História</option>
-                    <option value="Terror">Terror</option>
-                    <option value="Ficcao">Ficção</option>
-                    <option value="Cientificos">Científico</option>
-                    <option value="Policial">Policial</option>
-                </select>
-                <select id="filAutor">
-                    <option value="">Autor</option>
-                    <option value=""></option>
-                    <option value=""></option>
-
-
-                </select>
-                <select id="filBibli">
-                    <option value="">Biblioteca</option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-                <br>
-                <br>
-                <button> Filtrar </button>
-                <br><br>
-            </div>
-
-            <div class="col-sm-2 text-left">
-                <select id="ordenar">
-                    <option value="">Ordenar</option>
-                    <option value="A-Z">A-Z</option>
-                    <option value="Pontuacao">Pontuação</option>
-                    <option value="Data">Data de Doação</option>
-                </select>
-            </div>
-
-            <div class="col-sm-12 text-left">
-
-            </div>
-            <br>
         </div>
     </div>
 

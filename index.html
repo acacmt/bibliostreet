@@ -13,13 +13,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
     <!--Invoca a estilização em css-->
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/index.css">
 
     <!--Custom JS-->
     <script src="js/index.js"></script>
+    <script src="js/log.js"></script>
 
 </head>
 
@@ -33,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img width="150" height="42" src="img/learning.png" alt="">
+                <a href="index.html"><img width="150" height="42" src="img/learning.png" alt=""></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -78,7 +80,7 @@
                 <form id="frmLogin">
                     <input type="text" name="mail" placeholder="Email" id="inputLoginEmail">
                     <input type="password" name="pass" placeholder="Password" id="inputLoginPassword">
-                    <input type="submit" name="login" class="login loginmodal-submit" value="Iniciar Sessão">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Iniciar Sessão" onclick="check()">
                 </form>
 
                 <div class="login-help">
@@ -100,7 +102,7 @@
                     <br>
                     <input required minlength="5" type="password" class="form-control" id="inputPassword1" placeholder="password">
                     <input required minlength="5" type="password" class="form-control" id="inputPassword2" placeholder="password">
-                    <input type="submit" name="login" class="login loginmodal-submit" value="Registar">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Registar" onclick="store()">
                 </form>
             </div>
         </div>
@@ -121,7 +123,7 @@
                 <br>
                 <br>
                 <center>
-                    <img src="img/biblio.jpg" alt="Imagem não encontrada!" height="210" width="340">
+                    <img src="img/biblio.jpg" alt="Imagem não encontrada!" class="responsive" height="210" width="350">
                 </center>
             </div>
             <div class="col-sm-12 text-left">
@@ -132,7 +134,7 @@
             <br>
             <div class="col-sm-3 text-left">
                 <center>
-                    <i class="fa fa-comments" style="font-size:90px;color:#007988"></i>
+                    <i class="fa fa-comments" style="font-size:80px;color:#007988"></i>
                     <br>
                     <br>
                     <b>Comentar</b>
@@ -141,7 +143,7 @@
             </div>
             <div class="col-sm-3 text-left">
                 <center>
-                    <i class="fa fa-star" style="font-size:90px;color:#007988"></i>
+                    <i class="fa fa-star" style="font-size:80px;color:#007988"></i>
                     <br>
                     <br>
                     <b>Pontuar</b>
@@ -150,16 +152,16 @@
             </div>
             <div class="col-sm-3 text-left">
                 <center>
-                    <i class="fa fa-bell" style="font-size:90px;color:#007988"></i>
+                    <i class="fa fa-bell" style="font-size:80px;color:#007988"></i>
                     <br>
                     <br>
-                    <b>Notificações</b>
+                    <b>Notificar</b>
                     </p>
                 </center>
             </div>
             <div class="col-sm-3 text-left">
                 <center>
-                    <i class="fa fa-check-square" style="font-size:90px;color:#007988"></i>
+                    <i class="fa fa-check-square" style="font-size:80px;color:#007988"></i>
                     <br>
                     <br>
                     <b>Comentar</b>

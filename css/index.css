@@ -9,6 +9,12 @@ body {
     background-color: #f2f2f2;
 }
 
+.responsive {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
 .row.content {
@@ -41,13 +47,14 @@ button:hover {
     background-color: #00bfb2;
 }
 
-input[type=text] {}
-
 * {
     box-sizing: border-box;
 }
 
 input[type=text],
+input[type=email],
+input[type=password],
+input[type=url],
 select,
 textarea {
     width: 100%;

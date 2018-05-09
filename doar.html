@@ -13,10 +13,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
     <!--Invoca a estilização em css-->
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/log.css">
     <link rel="stylesheet" href="css/index.css">
+
+    <!--Custom JS-->
+    <script src="js/index.js"></script>
+    <script src="js/log.js"></script>
 
 </head>
 
@@ -30,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img width="150" height="42" src="img/learning.png" alt="">
+                <a href="index.html"><img width="150" height="42" src="img/learning.png" alt=""></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -39,6 +44,11 @@
                     </li>
                     <li class="active">
                         <a href="#">Doar</a>
+                    </li>
+                    <!--OPÇÃO LOGIN-->
+                    <li id="optLogin">
+                        <a href="#" data-toggle="modal" data-target="#login-modal">
+                            <span class="glyphicon glyphicon-log-in"></span> Iniciar Sessão</a>
                     </li>
                     <!--OPÇÃO LOGOUT-->
                     <li id="optLogout" class="nav-item">
@@ -60,8 +70,7 @@
                     <input type="text" id="fname" placeholder="Título do livro">
                     <br>
                     <br>
-                    <label for="furl">Link da capa</label>
-                    <input type="url" id="fcapa">
+                    <input type="url" id="fcapa" placeholder="Link da capa">
                     <br>
                     <br>
                     <textarea rows="4" cols="25" id="fdescricao" placeholder="Descrição"></textarea>
