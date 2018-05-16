@@ -56,9 +56,9 @@
     <div class="container">
 
         <div class="row content">
-            <div class="col-sm-12 text-left">
+            <div class="col-sm-12 text-left" id="doar">
                 <h2>Doar</h2>
-                <form action="/action_page.php" id="formdoar">
+                <form action="/action_page.php" id="formDoar">
                     <input type="text" id="fname" placeholder="Título do livro">
                     <br>
                     <br>
@@ -76,20 +76,10 @@
                     <br>
                     <br>
                     <select id="genero" name="genero">
-                        <option value="">Género</option>
-                        <option value="Romance">Romance</option>
-                        <option value="Drama">Drama</option>
-                        <option value="Infantil">Infantil</option>
-                        <option value="Poesia">Poesia</option>
-                        <option value="Historia">História</option>
-                        <option value="Terror">Terror</option>
-                        <option value="Ficcao">Ficção</option>
-                        <option value="Cientificos">Científico</option>
-                        <option value="Policial">Policial</option>
                     </select>
                     <br>
                     <br>
-                    <input type="text" id="ftag" placeholder="Tags">
+                    <input type="text" id="dtag" placeholder="Tags">
                     <br>
                     <br>
                     <input type="text" id="feditora" placeholder="Editora">
@@ -118,10 +108,17 @@
                     <input type="number" id="fcodigo">
                     <br>
                     <br>
-                    <button type="submit">Doar</button>
+                    <button type="submit" id="butdoar">Doar</button>
                     <br>
                     <br>
                 </form>
+                <div id="divdoar" style="display: none">
+
+                    <table id="tbldoar" style="width: 100%">
+
+                    </table>
+
+                </div>
             </div>
         </div>
 
