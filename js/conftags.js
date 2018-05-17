@@ -33,16 +33,14 @@ class tag {
 
 window.onload = function () {
 
-    // Itera sobre todos os arrys em localStorage
-    for (let i = 0; i < localStorage.length; i++) {
 
-        if (localStorage.getItem("tags")) {
 
-            tags = (JSON.parse(localStorage.getItem(localStorage.key(i))))
+    if (localStorage.getItem("tags")) {
 
-        }
+        tags = JSON.parse(localStorage.getItem("tags"))
 
     }
+
 
     //Formulário Tag
     let formTag = document.getElementById("formtag")
@@ -51,9 +49,7 @@ window.onload = function () {
 
     let ftag = document.getElementById("ftag")
 
-    let tag = document.getElementById("tag")
-    let divTag = document.getElementById("divTag")
-    let tblTag = document.getElementById("tblTag")
+    let tblTag = document.getElementById("divTag")
 
 
     //////////////////////////////
@@ -61,7 +57,7 @@ window.onload = function () {
     //          TAGS
     //////////////////////////////
     //////////////////////////////
-
+    renderTabletag()
     fbutTag.addEventListener("click", function () {
 
         renderTabletag()
@@ -75,8 +71,8 @@ window.onload = function () {
 
         //Iterar sobre o array para verificar se existe a tag
         for (var i = 0; i < tags.length; i++) {
-            if (tags[i]._tagName == ftag.value) {
-                strError += "tag já existente"
+            if (tags[i].tagName == ftag.value) {
+                strError += "Esta tag já existe!"
             }
         }
 
@@ -109,12 +105,11 @@ window.onload = function () {
 
         tblTag.innerHTML = ""
 
-        tblTag.innerHTML = "<table id='tabelatag' style='width: 100 % '>" +
+        tblTag.innerHTML = "<table id='tabelatag' style='width: 100%; border: 1px solid'>" +
             "<tr>" +
             "<th>tags</th>" +
-            "<th>Actions</th>" + 
-            "</tr>" +
-            "</table>"
+            "<th>Actions</th>" +
+            "</tr>"
 
         let strHTML = ""
 
@@ -123,9 +118,10 @@ window.onload = function () {
             strHTML += "<tr>" +
                 "<td>" + tags[i]._tagName + "</td>" +
                 "<td>" +
-                "<a id='" + tags[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a> " +
+                "<button class='remove' style='background-color: lightcoral'><a id='" + tags[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a></button>" +
                 "</td>" +
-            "</tr>"
+                "</tr>" +
+                "</table>"
 
         }
 

@@ -86,6 +86,12 @@ window.onload = function () {
     //////////////////////////////
     //////////////////////////////
 
+    fbutBiblio.addEventListener("click", function () {
+
+        renderTableBiblio()
+
+    })
+    
     //Adicionar um nova biblioteca
     formBiblio.addEventListener("submit", function (event) {
 
@@ -177,10 +183,4 @@ window.onload = function () {
             }
         }
     }
-
-    fbutBiblio.addEventListener("click", function () {
-
-        renderTableBiblio()
-
-    })
 }

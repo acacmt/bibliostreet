@@ -209,146 +209,146 @@ window.onload = function () {
 
 }
 
-window.onload = function () {
-    for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.getItem("users")) {
-            /*VAi buscar todos os users*/
-            users = (JSON.parse(localStorage.getItem(localStorage.key(i))))
+// window.onload = function () {
+//     for (let i = 0; i < localStorage.length; i++) {
+//         if (localStorage.getItem("users")) {
+//             /*VAi buscar todos os users*/
+//             users = (JSON.parse(localStorage.getItem(localStorage.key(i))))
 
-        }
-    }
+//         }
+//     }
 
-    butuser.addEventListener("click", function () {
+//     butuser.addEventListener("click", function () {
 
-        renderTableAddUti()
+//         renderTableAddUti()
 
-    })
+//     })
 
-    //Renderizar Tabela, sem a possibilidade de Remover users
-    function renderTableAddUti() {
+//     //Renderizar Tabela, sem a possibilidade de Remover users
+//     function renderTableAddUti() {
 
-        tbluser.innerHTML = ""
+//         tbluser.innerHTML = ""
 
-        tbluser.innerHTML = "<table id='tabelaAddUti' style='width: 100 % '>" +
-            "<tr>" +
-            "<th>Id</th>" +
-            "<th>Nome</th>" +
-            "<th>Tipo</th>" +
-            "<th>Email</th>" +
-            "<th>Password</th>" +
-            "<th>Actions</th>" +
-            "</tr>" +
-            "</table>"
+//         tbluser.innerHTML = "<table id='tabelaAddUti' style='width: 100 % '>" +
+//             "<tr>" +
+//             "<th>Id</th>" +
+//             "<th>Nome</th>" +
+//             "<th>Tipo</th>" +
+//             "<th>Email</th>" +
+//             "<th>Password</th>" +
+//             "<th>Actions</th>" +
+//             "</tr>" +
+//             "</table>"
 
-        let strHTML = ""
+//         let strHTML = ""
 
-        for (var i = 0; i < users.length; i++) {
+//         for (var i = 0; i < users.length; i++) {
 
-            strHTML += "<tr>" +
-                "<td>" + users[i]._id + "</td>" +
-                "<td>" + users[i]._nome + "</td>" +
-                "<td>" + users[i]._tipo + "</td>" +
-                "<td>" + users[i]._email + "</td>" +
-                "<td>" + users[i]._pass + "</td>" +
-                "<td>" +
-                "<a id='" + users[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a> " +
-                "</td>" +
-                "</tr>"
+//             strHTML += "<tr>" +
+//                 "<td>" + users[i]._id + "</td>" +
+//                 "<td>" + users[i]._nome + "</td>" +
+//                 "<td>" + users[i]._tipo + "</td>" +
+//                 "<td>" + users[i]._email + "</td>" +
+//                 "<td>" + users[i]._pass + "</td>" +
+//                 "<td>" +
+//                 "<a id='" + users[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a> " +
+//                 "</td>" +
+//                 "</tr>"
 
-        }
+//         }
 
-        tbluser.innerHTML += strHTML
+//         tbluser.innerHTML += strHTML
 
-    }
+//     }
 
-    //Adicionar utilizador
-    formuser.addEventListener("submit", function () {
+//     //Adicionar utilizador
+//     formuser.addEventListener("submit", function () {
 
-        let strError = ""
-        let tipoUti = ""
+//         let strError = ""
+//         let tipoUti = ""
 
-        //Itera sobre o array e verifica se já existe o email
-        for (var i = 0; i < users.length; i++) {
-            if (users[i].email == femail.value) {
-                strError += "Email já existente"
-            }
-        }
+//         //Itera sobre o array e verifica se já existe o email
+//         for (var i = 0; i < users.length; i++) {
+//             if (users[i].email == femail.value) {
+//                 strError += "Email já existente"
+//             }
+//         }
 
-        if (strError == "") {
+//         if (strError == "") {
 
-            let newUtilizador = new Utilizador(fnome.value, tipoUti, femail.value, fpassword.value)
-            users.push(newUtilizador)
-
-
-            localStorage.removeItem("users")
-
-            localStorage.setItem("users", JSON.stringify(users))
+//             let newUtilizador = new Utilizador(fnome.value, tipoUti, femail.value, fpassword.value)
+//             users.push(newUtilizador)
 
 
-            console.log(users)
+//             localStorage.removeItem("users")
 
-            renderTableAddUti()
-
-            event.preventDefault()
-
-        } else {
-
-            alert(strError)
-
-            renderTableAddUti()
-
-            event.preventDefault()
-
-        }
+//             localStorage.setItem("users", JSON.stringify(users))
 
 
-    })
+//             console.log(users)
 
-    function renderTableRemUti() {
+//             renderTableAddUti()
 
-        tblRemUti.innerHTML = ""
+//             event.preventDefault()
 
-        tblRemUti.innerHTML = "<table id='tabelaRemUti' style='width: 100 % '>" +
-            "<tr>" +
-            "<th>Id</th>" +
-            "<th>Nome</th>" +
-            "<th>Tipo</th>" +
-            "<th>Email</th>" +
-            "<th>Password</th>" +
-            "<th>Editar</th>" +
-            "</tr>" +
-            "</table>"
+//         } else {
 
-        let strHTML = ""
+//             alert(strError)
 
-        for (var i = 0; i < users.length; i++) {
+//             renderTableAddUti()
 
-            strHTML += "<tr>" +
-                "<td>" + users[i]._id + "</td>" +
-                "<td>" + users[i]._nome + "</td>" +
-                "<td>" + users[i]._tipo + "</td>" +
-                "<td>" + users[i]._email + "</td>" +
-                "<td>" + users[i]._pass + "</td>" +
-                "<td><button type='button' class='remove' id=" + users[i]._id + ">-</button>"
-            "</tr>"
+//             event.preventDefault()
 
-        }
-
-        tblRemUti.innerHTML += strHTML
+//         }
 
 
-        let btnRemove = document.getElementsByClassName("remove")
-        // Para cada botão, adicionar um listener para escutar pelo evento clique
-        for (let i = 0; i < btnRemove.length; i++) {
-            btnRemove[i].addEventListener("click", function () {
+//     })
 
-                let rowId = btnRemove[i].getAttribute("id")
-                removeUser(rowId)
+//     function renderTableRemUti() {
 
-                renderTableRemUti()
-            })
-        }
+//         tblRemUti.innerHTML = ""
 
-    }
+//         tblRemUti.innerHTML = "<table id='tabelaRemUti' style='width: 100 % '>" +
+//             "<tr>" +
+//             "<th>Id</th>" +
+//             "<th>Nome</th>" +
+//             "<th>Tipo</th>" +
+//             "<th>Email</th>" +
+//             "<th>Password</th>" +
+//             "<th>Editar</th>" +
+//             "</tr>" +
+//             "</table>"
 
-}
+//         let strHTML = ""
+
+//         for (var i = 0; i < users.length; i++) {
+
+//             strHTML += "<tr>" +
+//                 "<td>" + users[i]._id + "</td>" +
+//                 "<td>" + users[i]._nome + "</td>" +
+//                 "<td>" + users[i]._tipo + "</td>" +
+//                 "<td>" + users[i]._email + "</td>" +
+//                 "<td>" + users[i]._pass + "</td>" +
+//                 "<td><button type='button' class='remove' id=" + users[i]._id + ">-</button>"
+//             "</tr>"
+
+//         }
+
+//         tblRemUti.innerHTML += strHTML
+
+
+//         let btnRemove = document.getElementsByClassName("remove")
+//         // Para cada botão, adicionar um listener para escutar pelo evento clique
+//         for (let i = 0; i < btnRemove.length; i++) {
+//             btnRemove[i].addEventListener("click", function () {
+
+//                 let rowId = btnRemove[i].getAttribute("id")
+//                 removeUser(rowId)
+
+//                 renderTableRemUti()
+//             })
+//         }
+
+//     }
+
+// }

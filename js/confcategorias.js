@@ -32,13 +32,14 @@ class category {
 }
 
 window.onload = function () {
-    for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.getItem("categories")) {
+    
 
-            categories = (JSON.parse(localStorage.getItem(localStorage.key(i))))
+    if (localStorage.getItem("categories")) {
 
-        }
+        categories = JSON.parse(localStorage.getItem("categories"))
+
     }
+
 
     //Formulário Categoria
     let formCat = document.getElementById("formcat")
@@ -47,20 +48,18 @@ window.onload = function () {
     let fbutGenero = document.getElementById("genero")
 
     let fCat = document.getElementById("fcat")
-
-    //Select
-    let genero = document.getElementById("genero")
+    let tblcategories = document.getElementById("divCat")
 
     //////////////////////////////
     //////////////////////////////
     //        CATEGORIAS
     //////////////////////////////
     //////////////////////////////
-
+    renderTableCat()
     fbutCat.addEventListener("click", function () {
 
         renderTableCat()
-
+        console.log("hi")
     })
 
 
@@ -86,9 +85,6 @@ window.onload = function () {
 
             renderTableCat()
 
-            //Adiciona ao select
-            adicionarSelect()
-
             event.preventDefault()
 
         } else {
@@ -103,26 +99,15 @@ window.onload = function () {
 
     })
 
-    function adicionarSelect() {
-
-        fbutGenero.innerHTML = ""
-        for (let i = 0; i < categories.length; i++) {
-
-            fbutGenero.innerHTML += "<option value=" + categories[i]._categoryName + ">" + categories[i]._categoryName + "</option>"
-
-        }
-
-    }
-
     // Render Tabela
     function renderTableCat() {
 
         tblcategories.innerHTML = ""
 
-        tblcategories.innerHTML = "<table id='tblCat' style='width: 100 % '>" +
+        tblcategories.innerHTML = "<table id='tblCat' style='width: 100%; border: 1px solid'>" +
             "<tr>" +
             "<th>categories</th>" +
-            "<th>Actions</th>" +  
+            "<th>Actions</th>" +
             "</tr>" +
             "</table>"
 
@@ -133,7 +118,7 @@ window.onload = function () {
             strHTML += "<tr>" +
                 "<td>" + categories[i]._categoryName + "</td>" +
                 "<td>" +
-                "<a id='" + categories[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a> " +
+                "<button class='remove' style='background-color: lightcoral'><a id='" + categories[i]._id + "'><i class='fas fa-trash-alt'></i></a></button>" +
                 "</td>" +
                 "</tr>"
 
@@ -142,10 +127,8 @@ window.onload = function () {
         tblcategories.innerHTML += strHTML
 
         let btnRemove = document.getElementsByClassName("remove")
-        // Para cada botão, adicionar um listener para escutar pelo evento clique
         for (let i = 0; i < btnRemove.length; i++) {
             btnRemove[i].addEventListener("click", function () {
-                // By clicking in a specific game, remove it from the array
                 let rowId = btnRemove[i].getAttribute("id")
 
                 removecatById(rowId)
