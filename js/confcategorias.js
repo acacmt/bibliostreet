@@ -32,7 +32,7 @@ class category {
 }
 
 window.onload = function () {
-    
+
 
     if (localStorage.getItem("categories")) {
 
@@ -104,39 +104,35 @@ window.onload = function () {
 
         tblcategories.innerHTML = ""
 
-        tblcategories.innerHTML = "<table id='tblCat' style='width: 100%; border: 1px solid'>" +
-            "<tr>" +
-            "<th>categories</th>" +
-            "<th>Actions</th>" +
-            "</tr>" +
-            "</table>"
+        let strHTML = `<table id='tblCat' style='width: 100%; border: 1px solid'>
+            <tr>
+            <th>Categorias</th>
+            <th>Actions</th>
+            </tr>`
 
-        let strHTML = ""
+       
 
-        for (var i = 0; i < categories.length; i++) {
+        for (let i = 0; i < categories.length; i++) {
 
-            strHTML += "<tr>" +
-                "<td>" + categories[i]._categoryName + "</td>" +
-                "<td>" +
-                "<button class='remove' style='background-color: lightcoral'><a id='" + categories[i]._id + "'><i class='fas fa-trash-alt'></i></a></button>" +
-                "</td>" +
-                "</tr>"
+            strHTML += `<tr><td>${categories[i]._categoryName}</td>
+                <td>
+                <button class='remove' style='background-color: lightcoral'><a id='${categories[i]._id}'>
+                <i class='fas fa-trash-alt'></i></a></button>
+                </td> 
+            </tr>`
+
 
         }
+        strHTML += `</table>`
 
         tblcategories.innerHTML += strHTML
 
         let btnRemove = document.getElementsByClassName("remove")
         for (let i = 0; i < btnRemove.length; i++) {
             btnRemove[i].addEventListener("click", function () {
-                let rowId = btnRemove[i].getAttribute("id")
+                let rowId = btnRemove[i].firstChild.getAttribute("id")
 
                 removecatById(rowId)
-
-                localStorage.removeItem("categories")
-
-                localStorage.setItem("categories", JSON.stringify(categories))
-
                 renderTableCat()
             })
         }
@@ -149,5 +145,9 @@ window.onload = function () {
                 categories.splice(i, 1)
             }
         }
+
+        localStorage.removeItem("categories")
+
+        localStorage.setItem("categories", JSON.stringify(categories))
     }
 }

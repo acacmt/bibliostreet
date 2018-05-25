@@ -105,25 +105,26 @@ window.onload = function () {
 
         tblTag.innerHTML = ""
 
-        tblTag.innerHTML = "<table id='tabelatag' style='width: 100%; border: 1px solid'>" +
-            "<tr>" +
-            "<th>tags</th>" +
-            "<th>Actions</th>" +
-            "</tr>"
+        let strHTML = `<table id='tabelatag' style='width: 100%; border: 1px solid'>
+            <tr>
+            <th>Tags</th>
+            <th>Actions</th>
+            </tr>`
 
-        let strHTML = ""
+       
 
-        for (var i = 0; i < tags.length; i++) {
+        for (let i = 0; i < tags.length; i++) {
 
-            strHTML += "<tr>" +
-                "<td>" + tags[i]._tagName + "</td>" +
-                "<td>" +
-                "<button class='remove' style='background-color: lightcoral'><a id='" + tags[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a></button>" +
-                "</td>" +
-                "</tr>" +
-                "</table>"
+            strHTML += `<tr><td>${tags[i]._tagName}</td>
+                <td>
+                <button class='remove' style='background-color: lightcoral'><a id='${tags[i]._id}'>
+                <i class='fas fa-trash-alt'></i></a></button>
+                </td> 
+            </tr>`
+
 
         }
+        strHTML += `</table>`
 
         tblTag.innerHTML += strHTML
 
@@ -131,14 +132,14 @@ window.onload = function () {
         for (let i = 0; i < btnRemove.length; i++) {
             btnRemove[i].addEventListener("click", function () {
                 // By clicking in a specific game, remove it from the array
-                let rowId = btnRemove[i].getAttribute("id")
-                removeRowtagById(rowId)
+                let rowId = btnRemove[i].firstChild.getAttribute("id")
+                removetagByIdd(rowId)
                 renderTabletag()
             })
         }
     }
 
-    function removeRowtagById(id) {
+    function removetagByIdd(id) {
         console.log("ID: " + id)
         for (let i = 0; i < tags.length; i++) {
             if (tags[i]._id == id) {
