@@ -1,4 +1,4 @@
-console.log(localStorage.getItem("users"))
+//console.log(localStorage.getItem("users"))
 let users = []
 let userId = 0
 

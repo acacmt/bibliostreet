@@ -1,4 +1,3 @@
-
 window.onload = function () {
 	document.getElementById("formdoar").onsubmit = function (e) {
 		e.preventDefault();
@@ -27,10 +26,10 @@ window.onload = function () {
 		livros.push(livro)
 		localStorage.setItem("livros", JSON.stringify(livros))
 
-	
-console.log(livros)
 
+		console.log(livros)
 
+		alert("Livro Doado!")
+		
 	}
 }
-
