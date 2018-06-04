@@ -56,11 +56,11 @@ window.onload = function () {
 
 
             libraries = (JSON.parse(localStorage.getItem("libraries")))
-            alert(libraries.length)
+            //alert(libraries.length)
 
             for (let i = 0; i < libraries.length; i++) {
-                alert(libraries[i]._freguesia)
-                alert(libraries[i]._morada)
+                //alert(libraries[i]._freguesia)
+                //alert(libraries[i]._morada)
             }
 
         }
@@ -70,7 +70,7 @@ window.onload = function () {
     //Formulário Bibilioteca
     let formBiblio = document.getElementById("formbiblio")
 
-    let fbutBiblio = document.getElementById("fbutbiblio")
+    let fbutBiblio = document.getElementById("fbutBiblio")
 
     let fFreguesia = document.getElementById("ffreguesia")
     let fMorada = document.getElementById("fmorada")
@@ -91,7 +91,7 @@ window.onload = function () {
         renderTableBiblio()
 
     })
-    
+
     //Adicionar um nova biblioteca
     formBiblio.addEventListener("submit", function (event) {
 
@@ -119,7 +119,7 @@ window.onload = function () {
 
         } else {
 
-            alert(strError)
+
 
             renderTableBiblio()
 
@@ -133,36 +133,35 @@ window.onload = function () {
 
         tblBiblio.innerHTML = ""
 
-        tblBiblio.innerHTML = "<table id='tabelaBiblio' style='width: 100 % '>" +
-            "<tr>" +
-            "<th>Freguesia</th>" +
-            "<th>Morada</th>" +
-            "<th>Capacidade</th>" +
-            "<th>Actions</th>" +  
-            "</tr>" +
-            "</table>"
+        let strHTML = `<table id='tabelatag' style='width: 100%; border: 1px solid'>
+        <tr>
+        <th>Freguesia</th>
+        <th>Morada</th>
+        <th>Capacidade</th>
+        <th>Actions</th>
+        </tr>`
 
-        let strHTML = ""
+
 
         for (var i = 0; i < libraries.length; i++) {
 
-            strHTML += "<tr>" +
-                "<td>" + libraries[i]._freguesia + "</td>" +
-                "<td>" + libraries[i]._morada + "</td>" +
-                "<td>" + libraries[i]._capacidade + "</td>" +
-                "<td>" +
-                "<a id='" + libraries[i]._id + "' class='remove'><i class='fas fa-trash-alt'></i></a> " +
-                "</td>" +
-            "</tr>"
+            strHTML += `<tr><td>${libraries[i]._freguesia}</td>
+                <td>${libraries[i]._morada}</td>
+                <td>${libraries[i]._capacidade}</td>
+                <td>
+                <button class='remove' style='background-color: lightcoral'><a id='${tags[i]._id}'>
+                <i class='fas fa-trash-alt'></i></a></button>
+                </td> 
+            </tr>`
 
         }
+        strHTML += '</table>'
 
         tblBiblio.innerHTML += strHTML
 
         let btnRemove = document.getElementsByClassName("remove")
         for (let i = 0; i < btnRemove.length; i++) {
             btnRemove[i].addEventListener("click", function () {
-                // By clicking in a specific game, remove it from the array
                 let rowId = btnRemove[i].getAttribute("id")
                 removebiblioById(rowId)
 
