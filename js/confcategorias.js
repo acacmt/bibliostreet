@@ -110,7 +110,7 @@ window.onload = function () {
             <th>Actions</th>
             </tr>`
 
-       
+
 
         for (let i = 0; i < categories.length; i++) {
 
@@ -149,5 +149,22 @@ window.onload = function () {
         localStorage.removeItem("categories")
 
         localStorage.setItem("categories", JSON.stringify(categories))
+    }
+
+    // LOGOUT
+    optLogout.addEventListener("click", function () {
+        userId = 0
+        optLogout.style.display = 'none'
+        erase();
+
+        // similar behavior as an HTTP redirect
+        window.location.replace("index.html");
+
+    })
+
+    function erase() {
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('pw1');
     }
 }
