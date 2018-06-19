@@ -1,10 +1,8 @@
 window.onload = function () {
-    for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.getItem("users")) {
-            /*VAi buscar todos os users*/
-            users = (JSON.parse(localStorage.getItem(localStorage.key(i))))
-        }
+    if (localStorage.getItem("users")) {
+        users = (JSON.parse(localStorage.getItem("users")))
     }
+
 
     butuser.addEventListener("click", function () {
 

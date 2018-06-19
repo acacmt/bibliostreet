@@ -1,36 +1,3 @@
-let categories = []
-
-class category {
-
-    constructor(categoryName) {
-
-        this._id = category.getLastId() + 1
-        this.categoryName = categoryName
-
-    }
-
-    get id() {
-        return this._id
-    }
-
-    get categoryName() {
-        return this._categoryName
-    }
-
-    set categoryName(newcategoryName) {
-        this._categoryName = newcategoryName
-    }
-
-    static getLastId() {
-        let lastId = 0
-        if (categories.length != 0) {
-            lastId = categories[categories.length - 1].id
-        }
-        return lastId
-    }
-
-}
-
 window.onload = function () {
 
 
@@ -50,11 +17,7 @@ window.onload = function () {
     let fCat = document.getElementById("fcat")
     let tblcategories = document.getElementById("divCat")
 
-    //////////////////////////////
-    //////////////////////////////
-    //        CATEGORIAS
-    //////////////////////////////
-    //////////////////////////////
+
     renderTableCat()
     fbutCat.addEventListener("click", function () {
 
@@ -136,6 +99,7 @@ window.onload = function () {
                 renderTableCat()
             })
         }
+
     }
 
     function removecatById(id) {

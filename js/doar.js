@@ -2,8 +2,6 @@ window.onload = function () {
 	document.getElementById("formdoar").onsubmit = function (e) {
 		e.preventDefault();
 
-
-
 		let fnome = document.getElementById("fnome").value;
 		let fcapa = document.getElementById("fcapa").value;
 		let fdescricao = document.getElementById("fdescricao").value;
@@ -18,9 +16,6 @@ window.onload = function () {
 		let fdataDoacao = document.getElementById("fdataDoacao").value;
 		let fcodigo = document.getElementById("fcodigo").value;
 		//console.log("Doar")
-
-
-
 
 		let livro = new Livro(fnome, fcapa, fdescricao, fautores, fdata, fgenero, ftag, feditora, fpaginas, festado, fnomedoador, fdataDoacao, fcodigo)
 		livros.push(livro)

@@ -1,36 +1,3 @@
-let tags = []
-class tag {
-
-    constructor(tagName) {
-
-        this._id = tag.getLastId() + 1
-        this.tagName = tagName
-
-    }
-
-    get id() {
-        return this._id
-    }
-
-    get tagName() {
-        return this._tagName
-    }
-
-    set tagName(newtagName) {
-        this._tagName = newtagName
-    }
-
-    static getLastId() {
-        let lastId = 0
-        if (tags.length != 0) {
-            lastId = tags[tags.length - 1].id
-        }
-        return lastId
-    }
-
-}
-
-
 window.onload = function () {
 
 
@@ -51,12 +18,6 @@ window.onload = function () {
 
     let tblTag = document.getElementById("divTag")
 
-
-    //////////////////////////////
-    //////////////////////////////
-    //          TAGS
-    //////////////////////////////
-    //////////////////////////////
     renderTabletag()
     fbutTag.addEventListener("click", function () {
 
@@ -93,8 +54,6 @@ window.onload = function () {
 
             alert(strError)
 
-            renderTabletag()
-
             event.preventDefault()
         }
 
@@ -111,7 +70,6 @@ window.onload = function () {
             <th>Actions</th>
             </tr>`
 
-       
 
         for (let i = 0; i < tags.length; i++) {
 
@@ -131,7 +89,6 @@ window.onload = function () {
         let btnRemove = document.getElementsByClassName("remove")
         for (let i = 0; i < btnRemove.length; i++) {
             btnRemove[i].addEventListener("click", function () {
-                // By clicking in a specific game, remove it from the array
                 let rowId = btnRemove[i].firstChild.getAttribute("id")
                 removetagByIdd(rowId)
                 renderTabletag()
