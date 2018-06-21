@@ -1,5 +1,5 @@
 let users = []
-let userId = 0
+//let userId = 0
 let libraries = []
 //console.log(localStorage.getItem("livros"))
 let livros = []
@@ -52,8 +52,8 @@ class User {
         return this._password
     }
 
-    set password(newPassoword) {
-        this._password = newPassoword
+    set password(newPassword) {
+        this._password = newPassword
     }
 
     // Propriedade TIPO USER
