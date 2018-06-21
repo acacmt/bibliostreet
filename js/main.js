@@ -6,6 +6,7 @@ let livros = []
 let livroId = 0
 let tags = []
 let categories = []
+let fines = []
 
 //////////////////////////////////
 //////////////////////////////////
@@ -14,12 +15,13 @@ let categories = []
 //////////////////////////////////
 class User {
 
-    constructor(name, email, password, type) {
+    constructor(name, email, password, type, multa) {
         this._id = User.getLastId() + 1
         this.name = name
         this.email = email
         this.password = password
         this.type = type
+        this.multa = multa
     }
 
     // Propriedade ID
@@ -63,10 +65,19 @@ class User {
         this._type = newType
     }
 
+    // Propriedade MULTA
+    get multa() {
+        return this._multa
+    }
+
+    set multa(newMulta) {
+        this._multa = newMulta
+    }
+
     static getLastId() {
         let lastId = 0
         if (users.length != 0) {
-            lastId = users[users.length - 1].id
+            lastId = users[users.length - 1]._id
         }
         return lastId
     }
@@ -358,6 +369,61 @@ class category {
         if (categories.length != 0) {
             lastId = categories[categories.length - 1].id
         }
+        return lastId
+    }
+
+}
+
+//////////////////////////////
+//////////////////////////////
+//        MULTAS
+//////////////////////////////
+//////////////////////////////
+class mulct {
+
+    constructor(days, fineValue, limitMulct) {
+
+        this._id = mulct.getLastId() + 1
+        this.days = days
+        this.fineValue = fineValue
+        this.limitMulct = limitMulct
+
+    }
+
+    get id() {
+        return this._id
+    }
+
+    get days() {
+        return this._days
+    }
+
+    set days(newdays) {
+        this._days = newdays
+    }
+    
+    get fineValue() {
+        return this._fineValue
+    }
+
+    set fineValue(newfineValue) {
+        this._fineValue = newfineValue
+    }
+
+    get limitMulct() {
+        return this._limitMulct
+    }
+
+    set limitMulct(newlimitMulct) {
+        this._limitMulct = newlimitMulct
+    }
+
+    static getLastId() {
+        let lastId = 0
+        if (fines.length != 0) {
+            lastId = fines[fines.length - 1].id
+        }
+        console.log(lastId)
         return lastId
     }
 

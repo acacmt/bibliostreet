@@ -1,69 +1,55 @@
 window.onload = function () {
+
     if (localStorage.getItem("users")) {
-        users = (JSON.parse(localStorage.getItem("users")))
+
+        users = JSON.parse(localStorage.getItem("users"))
+
     }
 
+    //Formulário Users
+    let formuser = document.getElementById("formuser")
 
-    butuser.addEventListener("click", function () {
+    let fbutuser = document.getElementById("fbutuser")
 
-        renderTableAddUti()
+    let fnome = document.getElementById("fnome")
+    //let festado = document.getElementById("festado")
+    let femail = document.getElementById("femail")
+    let fpassword = document.getElementById("fpassword")
+    let fmulta = document.getElementById("fmulta")
 
+    let tblUser = document.getElementById("divuser")
+
+    console.log("Nome user: " + fnome)
+    console.log("Email: " + femail)
+    console.log(fpassword)
+    renderTableUser()
+
+    fbutuser.addEventListener("click", function () {
+
+        renderTableUser()
     })
-
-    //Renderizar Tabela, sem a possibilidade de Remover users
-    function renderTableAddUti() {
-        tbluser.innerHTML = ""
-        let strHTML = `<table id='tabelaAddUti' style='width: 100%; border: 1px solid'>
-        <tr>
-        <th>Nome</th>
-        <th>Tipo</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Actions</th>
-        </tr>`
-
-        for (var i = 0; i < users.length; i++) {
-
-            strHTML += `<tr><td>${users[i]._nome}</td>
-                <td>${users[i]._tipo}</td>
-                <td>${users[i]._email}</td>
-                <td>${users[i]._pass}</td>
-                <td>
-                <button class='remove' style='background-color: lightcoral'><a id='${users[i]._id}'>
-                <i class='fas fa-trash-alt'></i></a></button>
-                </td> 
-            </tr>`
-        }
-        strHTML += '</table>'
-        tbluser.innerHTML += strHTML
-    }
 
     //Adicionar utilizador
     formuser.addEventListener("submit", function () {
 
         let strError = ""
-        let tipoUti = ""
 
         //Itera sobre o array e verifica se já existe o email
         for (var i = 0; i < users.length; i++) {
             if (users[i].email == femail.value) {
-                strError += "Email já existente"
+                strError += "Este email já existe!"
             }
         }
 
         if (strError == "") {
 
-            let newUtilizador = new Utilizador(fnome.value, tipoUti, femail.value, fpassword.value)
-            users.push(newUtilizador)
-
-
+            let newUser = new user(fnome.value, femail.value, fpassword.value, fmulta.value)
+            users.push(newUser)
             localStorage.removeItem("users")
-
             localStorage.setItem("users", JSON.stringify(users))
-
             console.log(users)
 
-            renderTableAddUti()
+            renderTableUser()
 
             event.preventDefault()
 
@@ -71,7 +57,7 @@ window.onload = function () {
 
             alert(strError)
 
-            renderTableAddUti()
+            renderTableUser()
 
             event.preventDefault()
 
@@ -80,24 +66,28 @@ window.onload = function () {
 
     })
 
-    function renderTableRemUti() {
+    // Render Tabela
+    function renderTableUser() {
 
-        tblRemUti.innerHTML = ""
-        let strHTML = `<table id='tabelaRemUti' style='width: 100%; border: 1px solid'>
+        tblUser.innerHTML = ""
+
+        let strHTML = `<table id='tblUser' style='width: 100%; border: 1px solid'>
         <tr>
         <th>Nome</th>
-        <th>Tipo</th>
+
         <th>Email</th>
         <th>Password</th>
+        <th>Multa</th>
         <th>Actions</th>
         </tr>`
 
-        for (var i = 0; i < users.length; i++) {
+        for (let i = 0; i < users.length; i++) {
 
-            strHTML += `<tr><td>${users[i]._nome}</td>
-                <td>${users[i]._tipo}</td>
+            strHTML += `<tr><td>${users[i]._name}</td>
+                
                 <td>${users[i]._email}</td>
-                <td>${users[i]._pass}</td>
+                <td>${users[i]._password}</td>
+                <td>${users[i]._multa}</td>
                 <td>
                 <button class='remove' style='background-color: lightcoral'><a id='${users[i]._id}'>
                 <i class='fas fa-trash-alt'></i></a></button>
@@ -105,16 +95,31 @@ window.onload = function () {
             </tr>`
         }
         strHTML += '</table>'
-        tblRemUti.innerHTML += strHTML
+
+        tblUser.innerHTML += strHTML
 
         let btnRemove = document.getElementsByClassName("remove")
         for (let i = 0; i < btnRemove.length; i++) {
             btnRemove[i].addEventListener("click", function () {
-                let rowId = btnRemove[i].getAttribute("id")
-                removeUser(rowId)
-                renderTableRemUti()
+                let rowId = btnRemove[i].firstChild.getAttribute("id")
+
+                removecatById(rowId)
+                renderTableUser()
             })
         }
+
+    }
+
+    function removecatById(id) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i]._id == id) {
+                users.splice(i, 1)
+            }
+        }
+
+        localStorage.removeItem("users")
+
+        localStorage.setItem("users", JSON.stringify(users))
     }
 
     // LOGOUT
