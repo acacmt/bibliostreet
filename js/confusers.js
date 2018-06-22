@@ -1,4 +1,5 @@
 window.onload = function () {
+  
 
     if (localStorage.getItem("users")) {
 
@@ -45,7 +46,7 @@ window.onload = function () {
 
         if (strError == "") {
 
-            let newUser = new users(fnome.value, festado.value, femail.value, fpassword.value, fmulta.value)
+            let newUser = new User(fnome.value, femail.value, fpassword.value, festado.value, fmulta.value)
             users.push(newUser)
 
             localStorage.removeItem("users")
