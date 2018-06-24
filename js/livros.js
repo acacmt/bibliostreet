@@ -4,25 +4,25 @@ let livroId = 0
 
 class Livro {
 
-    constructor(nome, capa, descricao, autores,data,genero,tag,editora,paginas,estado,nomedoador,dataDoacao,codigo) {
+    constructor(nome, capa, descricao, autores, data, genero, tag, editora, paginas, estado, nomedoador, dataDoacao, codigo) {
         this._id = Livro.getLastId() + 1
         this.nome = nome
         this.capa = capa
-        this.descricao= descricao
+        this.descricao = descricao
         this.autores = autores
         this.data = data
-        this.genero =genero
+        this.genero = genero
         this.tag = tag
-        this.editora =editora
-        this.paginas= paginas
+        this.editora = editora
+        this.paginas = paginas
         this.estado = estado
         this.nomedoador = nomedoador
         this.dataDoacao = dataDoacao
-        this.codigo= codigo
-        
+        this.codigo = codigo
+
     }
 
-    
+
     // Propriedade ID
     get id() {
         return this._id
@@ -91,7 +91,7 @@ class Livro {
     }
 
     set tag(novoTag) {
-        this._tag= novoTag
+        this._tag = novoTag
     }
 
     // Propriedade Editora
@@ -112,7 +112,7 @@ class Livro {
         this._paginas = novoPaginas
     }
 
-        // Propriedade Estado
+    // Propriedade Estado
     get estado() {
         return this._estado
     }
@@ -129,7 +129,7 @@ class Livro {
     }
 
     set nomedoador(novoNomedoador) {
-        this._nomedoador= novoNomedoador
+        this._nomedoador = novoNomedoador
     }
 
     // Propriedade Data da doação
@@ -138,7 +138,7 @@ class Livro {
     }
 
     set dataDoacao(novoDataDoacao) {
-        this._dataDoacao= novoDataDoacao
+        this._dataDoacao = novoDataDoacao
     }
 
     // Propriedade Código da Biblioteca
@@ -161,3 +161,26 @@ class Livro {
 
 }
 
+
+
+
+
+let strHTML = `<table id='tabelalivros' style='width: 100%; border: 1px solid'>
+            <tr>
+            <th>Titulo</th>
+            <th>Autores</th>
+            </tr>`
+
+
+
+for (let i = 0; i < livros.length; i++) {
+
+    strHTML += `<tr><td>${livros[i]._nome}</td>
+                <td>
+            ${livros[i]._autores}
+                </td> 
+            </tr>`
+
+
+}
+strHTML += `</table>`

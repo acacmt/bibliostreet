@@ -1,7 +1,7 @@
 let users = []
 //let userId = 0
 let libraries = []
-//console.log(localStorage.getItem("livros"))
+console.log(localStorage.getItem("livros"))
 let livros = []
 let livroId = 0
 let tags = []
@@ -294,9 +294,12 @@ class Livro {
 
     static getLastId() {
         let lastId = 0
-        if (livros.length != 0) {
-            lastId = livros[livros.length - 1].id
+        if (livros) {
+            if (livros.length != 0) {
+                lastId = livros[livros.length - 1].id
+            }
         }
+
         return lastId
     }
 
@@ -401,7 +404,7 @@ class mulct {
     set days(newdays) {
         this._days = newdays
     }
-    
+
     get fineValue() {
         return this._fineValue
     }
@@ -428,3 +431,10 @@ class mulct {
     }
 
 }
+if (localStorage.getItem("livros"))
+    livros = JSON.parse(localStorage.getItem("livros"))
+if (localStorage.getItem("categories"))
+    categories = JSON.parse(localStorage.getItem("categories"))
+
+// var livro = new Livro("eed", "wedweugdwuke", "eiwhdwuked");
+// livros.push(livro)
