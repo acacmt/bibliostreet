@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="css/index.css">
 
     <!--Custom JS-->
-    <script src="js/logout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/doar.js"></script>
 
@@ -83,7 +82,7 @@
                     </select>
                     <br>
                     <br>
-                    <input type="text" id="ftag" maxlength="10" placeholder="Tags">
+                   <input type="text" id="ftag" maxlength="50" placeholder="Tag">
                     <br>
                     <br>
                     <input type="text" id="feditora" maxlength="50" placeholder="Editora">
@@ -93,7 +92,7 @@
                     <input type="number" id="fpaginas">
                     <br>
                     <br>
-                    <select id="festado" name="genero">
+                    <select id="festado">
                         <option value="">Estado</option>
                         <option value="Bom">Bom</option>
                         <option value="Aceitavel">Aceitável</option>
@@ -108,11 +107,13 @@
                     <input type="date" id="fdataDoacao" max="2018-12-31">
                     <br>
                     <br>
-                    <label for="fcodigo">Código da Biblioteca</label>
-                    <input type="number" id="fcodigo">
+                    <label>Biblioteca</label>
+                    <select id="fcodigo" >
+                        <option value="">Biblioteca</option>
+                    </select>
                     <br>
                     <br>
-                    <button type="submit">Doar</button>
+                    <button id="fbutSubmit">Doar</button>
                     <br>
                     <br>
                 </form>

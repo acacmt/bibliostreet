@@ -21,7 +21,6 @@
 
     <!--Custom JS-->
     <script src="js/main.js"></script>
-    <script src="js/logout.js"></script>
     <script src="js/requisitar.js"></script>
 
 
@@ -54,30 +53,21 @@
     </nav>
 
     <div class="container">
-        <div  class="col-sm-12" style="margin-top: 3%">
+        <div class="col-sm-12" style="margin-top: 3%">
             <div id="requesitarLivro">
 
             </div>
-           
+
             <div hidden id="comentarios" class="col-sm-12" style="margin-top: 1%; display: none">
                 <h4>
                     <b>COMENTÁRIOS</b>
                 </h4>
                 <textarea name="comentário" id="comentario" cols="20" rows="5" placeholder="comentário"></textarea>
-                <button id="comentar"> Comentar </button>
+                <button id="comentar" onclick="Comentar()"> Comentar </button>
                 <button id="pontuar" onclick="Pontuar()"> Pontuar </button>
             </div>
             <div id="listcoment" class="col-sm-12" style="margin-top: 1%">
-                <!--<div class="w3-panel w3-card">
-                    <p> and valuable first edition has been stolen. His life is a wreck. Amelia is a book rep, with a big heart,
-                        and a lonely life Maya is the baby who ends up on A.J.'s bookshop floor with a note. What happens
-                        in the bookshop that changes the lives of these seemingly normal but extraordinary characters? This
-                        is the story of how unexpected love can rescue you and bring you back to real life, in a world that
-                        you won't want to </p>
-                    <h6 class="text-right">
-                        <b>Ricardo Silva</b>
-                    </h6>
-                </div>-->
+           
             </div>
         </div>
     </div>

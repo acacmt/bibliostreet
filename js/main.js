@@ -1,12 +1,13 @@
 let users = []
 //let userId = 0
 let libraries = []
-console.log(localStorage.getItem("livros"))
+//console.log(localStorage.getItem("livros"))
 let livros = []
 let livroId = 0
 let tags = []
 let categories = []
 let fines = []
+let comments = []
 
 //////////////////////////////////
 //////////////////////////////////
@@ -131,7 +132,7 @@ class library {
     static getLastId() {
         let lastId = 0
         if (libraries.length != 0) {
-            lastId = libraries[libraries.length - 1].id
+            lastId = libraries[libraries.length - 1]._id
         }
         return lastId
     }
@@ -296,7 +297,7 @@ class Livro {
         let lastId = 0
         if (livros) {
             if (livros.length != 0) {
-                lastId = livros[livros.length - 1].id
+                lastId = livros[livros.length - 1]._id
             }
         }
 
@@ -334,7 +335,7 @@ class tag {
     static getLastId() {
         let lastId = 0
         if (tags.length != 0) {
-            lastId = tags[tags.length - 1].id
+            lastId = tags[tags.length - 1]._id
         }
         return lastId
     }
@@ -370,7 +371,7 @@ class category {
     static getLastId() {
         let lastId = 0
         if (categories.length != 0) {
-            lastId = categories[categories.length - 1].id
+            lastId = categories[categories.length - 1]._id
         }
         return lastId
     }
@@ -382,6 +383,8 @@ class category {
 //        MULTAS
 //////////////////////////////
 //////////////////////////////
+
+
 class mulct {
 
     constructor(days, fineValue, limitMulct) {
@@ -424,17 +427,109 @@ class mulct {
     static getLastId() {
         let lastId = 0
         if (fines.length != 0) {
-            lastId = fines[fines.length - 1].id
+            lastId = fines[fines.length - 1]._id
         }
         console.log(lastId)
         return lastId
     }
 
 }
+
+
+//////////////////////////////////
+//////////////////////////////////
+//          COMENTÁRIOS
+//////////////////////////////////
+//////////////////////////////////
+class comment {
+
+    constructor(message, user_name, book_id) {
+
+        this._id = comment.getLastId() + 1
+        this.message = message
+        this.user_name = user_name
+        this.book_id = book_id
+    }
+
+    get id() {
+        return this._id
+    }
+
+    get message() {
+        return this._message
+    }
+
+    set message(newMessage) {
+        this._message = newMessage
+    }
+
+    get user_name() {
+        return this._user_name
+    }
+
+    set user_name(newUserName) {
+        this._user_name = newUserName
+    }
+
+    get book_id() {
+        return this._book_id
+    }
+
+    set book_id(newBookID) {
+        this._book_id = newBookID
+    }
+
+    static getLastId() {
+        let lastId = 0
+        if (comments.length != 0) {
+            lastId = comments[comments.length - 1]._id
+        }
+        return lastId
+    }
+
+}
+
 if (localStorage.getItem("livros"))
     livros = JSON.parse(localStorage.getItem("livros"))
 if (localStorage.getItem("categories"))
     categories = JSON.parse(localStorage.getItem("categories"))
+if (localStorage.getItem("libraries"))
+    libraries = JSON.parse(localStorage.getItem("libraries"))
+if (localStorage.getItem("comments"))
+    comments = JSON.parse(localStorage.getItem("comments"))
 
+    
 // var livro = new Livro("eed", "wedweugdwuke", "eiwhdwuked");
 // livros.push(livro)
+
+
+//////////////////////////////
+//////////////////////////////
+//        FILTROS
+//////////////////////////////
+//////////////////////////////
+
+
+// filterSelection("all")
+// function filterSelection(c) {
+//   var x, i;
+//   x = document.getElementsByClassName("filterDiv");
+//   if (c == "all") c = "";
+//   for (i = 0; i < x.length; i++) {
+//     w3RemoveClass(x[i], "show");
+//     if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+//   }
+// }
+
+
+
+// // Add active class to the current button (highlight it)
+// var btnContainer = document.getElementById("myBtnContainer");
+// var btns = btnContainer.getElementsByClassName("btn");
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function(){
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// }

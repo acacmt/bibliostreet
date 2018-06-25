@@ -27,7 +27,7 @@ window.onload = function () {
                         <b>${livros[i]._nome}</b>
                     </h3>
                     <h4 id="bookauthor">${livros[i]._autores}</h4>
-                    <button class='verMaisLivro' onclick='verMais(`+i+`)'> ver mais</button>
+                    <button id="requisitar"><a href="./livros.html"> ver mais </a></button>
                     
                 </div>
             </div></div>`
@@ -42,8 +42,6 @@ window.onload = function () {
         }
 
     }
-
-    
 
     renderCategories()
     function renderCategories() {
@@ -73,7 +71,7 @@ window.onload = function () {
     }
 
     document.getElementById("fgenero").addEventListener("change", fbutFiltrar);
-    document.getElementById("fcodigo").addEventListener("change",fbutFiltrar);
+    document.getElementById("fcodigo").addEventListener("change", fbutFiltrar);
 
     var fbutFiltrar = document.getElementById("fbutFiltrar")
     fbutFiltrar.addEventListener("click", function () {
@@ -103,7 +101,6 @@ window.onload = function () {
                             <b>${livros[i]._nome}</b>
                         </h3>
                         <h4 id="bookauthor">${livros[i]._autores}</h4>
-                        <button id="requisitar"><a href="./livros.html"> ver mais </a></button>
                         
                     </div>
                     </div>
@@ -121,7 +118,6 @@ window.onload = function () {
                             <b>${livros[i]._nome}</b>
                         </h3>
                         <h4 id="bookauthor">${livros[i]._autores}</h4>
-                        <button id="requisitar"><a href="./livros.html"> ver mais </a></button>
                         
                     </div>
                     </div>
@@ -142,7 +138,6 @@ window.onload = function () {
                             <b>${livros[i]._nome}</b>
                         </h3>
                         <h4 id="bookauthor">${livros[i]._autores}</h4>
-                        <button id="requisitar"><a href="./livros.html"> ver mais </a></button>
                         
                     </div>
                     </div>
@@ -161,7 +156,6 @@ window.onload = function () {
                             <b>${livros[i]._nome}</b>
                         </h3>
                         <h4 id="bookauthor">${livros[i]._autores}</h4>
-                        <button id="requisitar"><a href="./livros.html"> ver mais </a></button>
                         
                     </div>
                     </div>
@@ -174,7 +168,7 @@ window.onload = function () {
 
 
     })
-       var fbutOrdenar = document.getElementById("fbutOrdenar")
+      var fbutOrdenar = document.getElementById("fbutOrdenar")
     fbutOrdenar.addEventListener("click", function () {
         var lstLivros = document.getElementById("listaLivros")
         let strHTML = ''
@@ -192,7 +186,6 @@ window.onload = function () {
                             <b>${livros[i]._nome}</b>
                         </h3>
                         <h4 id="bookauthor">${livros[i]._autores}</h4>
-                        <button id="requisitar"><a href="./livros.html"> ver mais </a></button>
                     </div>
                     </div>
                 </div>`
@@ -215,9 +208,4 @@ window.onload = function () {
         localStorage.removeItem('email');
         localStorage.removeItem('pw1');
     }
-}
-
-function verMais(i){
-    localStorage.setItem("verMaisLivro", JSON.stringify(livros[i]));
-    document.location.replace("./livros.html");
 }

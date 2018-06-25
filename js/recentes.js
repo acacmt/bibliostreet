@@ -12,7 +12,7 @@ window.onload = function () {
             console.log(livros)
             for (let i = 0; i < livros.length; i++) {
 
-                strHTML += `<div class="col-sm-4">
+                strHTML += `<div class="col-sm-4" style="margin-top: 1%">
                 <div class="w3-card-4">
                     <img src=${livros[i]._capa}alt="Norway" style="width:168px">
                     <div class="w3-container w3-center">

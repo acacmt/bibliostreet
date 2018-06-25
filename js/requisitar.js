@@ -1,7 +1,7 @@
 window.onload = function () {
     console.log(123)
 
-
+    var livro = JSON.parse(localStorage.getItem("verMaisLivro"))
 
     //lista dos livros
     renderReqlivros();
@@ -24,17 +24,19 @@ window.onload = function () {
             //             }
 
 
-            for (let i = 0; i < livros.length; i++) {
 
-                strHTML += ` <div class="col-sm-3 text-center">
-                <img id="image" src=${livros[i]._capa} alt="Norway" style=" height:178px;">
+            strHTML += ` <div class="col-sm-3 text-center">
+                <img id="image" src=${livro._capa} alt="Norway" style=" height:178px;">
             </div>
 
             <div class="col-sm-9 text-left">
                 <h3 id="bookname">
-                    <b>${livros[i]._nome}</b>
+                    <b>${livro._nome}</b>
                 </h3>
-                <h4 id="bookauthor">${livros[i]._autores}</h4>
+                <h4 id="bookauthor">${livro._autores}</h4>
+                <div class="stars-outer">
+                    <div class="stars-inner"></div>
+                </div>
                 <p id="demo"></p>
                 <button id="requisitar" onclick="document.getElementById('comentarios').style.display = 'block'"> Requisitar </button>
             </div>
@@ -42,10 +44,10 @@ window.onload = function () {
                 <h4>
                     <b>DESCRIÇÃO</b>
                 </h4>
-                <h6 id="bookresume">${livros[i]._descricao} </div>`
+                <h6 id="bookresume">${livro._descricao} </div>`
 
 
-            }
+
 
 
             reqLivros.innerHTML = strHTML
@@ -54,44 +56,84 @@ window.onload = function () {
         }
 
     }
+    renderComments();
+    function renderComments() {
 
-    // lista de comentarios
-    renderlistcoment();
-    function renderlistcoment() {
-        var reqcoment = document.getElementById("listcoment")
-         var comment = document.getElementById('comentario'),updateInterval;
+        var strHTML = ''
 
-        console.log(reqcoment)
-        if (reqcoment) {
-            reqcoment.innerHTML = ""
+        for (var i = 0; i < comments.length; i++) {
+            if (comments[i]._book_id == livro._id) {
 
-            let strHTML = ''
-            console.log(livros)
-            for (let i = 0; i < users.length; i++) {
-               
-                strHTML += ` <!--<div class="w3-panel w3-card">
-                <p> ${comment} </p>
-                    <h6 class="text-right">
-                        <b>${users[i]._nome}</b>
-                    </h6>
-                </div>--> `
-
+                strHTML += `<div class="w3-panel w3-card">
+                <p> ${comments[i]._message} </p>
+                <h6 class="text-right">
+                    <b>${comments[i]._user_name}</b>
+                </h6>
+            </div>`
 
             }
-
-
-            reqcoment.innerHTML = strHTML
-
-
         }
 
+        document.getElementById("listcoment").innerHTML = strHTML
+
     }
+
+    // LOGOUT
+    optLogout.addEventListener("click", function () {
+        userId = 0
+        optLogout.style.display = 'none'
+        erase();
+
+        // similar behavior as an HTTP redirect
+        window.location.replace("index.html");
+
+    })
+
+    function erase() {
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('pw1');
+    }
+
+
+    
+
+}
+
+function Comentar() {
+
+    var livro = JSON.parse(localStorage.getItem("verMaisLivro"))
+
+    var message = document.getElementById("comentario").value
+    var user_name = localStorage.getItem("name")
+    var book_id = livro._id;
+
+    comments.push(new comment(message, user_name, book_id));
+    localStorage.setItem("comments", JSON.stringify(comments));
+    
+    
+    var strHTML = ''
+
+        for (var i = 0; i < comments.length; i++) {
+            if (comments[i]._book_id == livro._id) {
+
+                strHTML += `<div class="w3-panel w3-card">
+                <p> ${comments[i]._message} </p>
+                <h6 class="text-right">
+                    <b>${comments[i]._user_name}</b>
+                </h6>
+            </div>`
+
+            }
+        }
+
+        document.getElementById("listcoment").innerHTML = strHTML
 
 }
 
 function Pontuar() {
     var txt;
-    var pontuacao = prompt("Por favor de a sua pontuação a este livro de 1 a 5");
+    var pontuacao = parseInt(prompt("Por favor de a sua pontuação a este livro de 1 a 5"));
     if (pontuacao == 0 || pontuacao >= 6) {
         txt = "Pontuação não permitida";
     } else {
@@ -99,3 +141,5 @@ function Pontuar() {
     }
     document.getElementById("demo").innerHTML = txt;
 }
+
+

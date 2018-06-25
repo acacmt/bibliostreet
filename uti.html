@@ -21,11 +21,9 @@
 
     <!--Custom JS-->
     <script src="js/main.js"></script>
-    <script src="js/logout.js"></script>
-    <script src="js/filtros.js"></script>
     <script src="js/utilizador.js"></script>
-    
-    
+
+
 
 </head>
 
@@ -62,31 +60,28 @@
             <div class="col-sm-12 text-left">
                 <h2>Livros</h2>
             </div>
-            <div class="col-sm-10 text-left">
+            <div class="col-sm-10 text-left" id="filtro">
                 <select id="fgenero">
-                    
+                    <option value=""></option>
                 </select>
                 <select id="fcodigo">
                 </select>
                 <br>
                 <br>
-                <button onclick="filtrar()"> Filtrar </button>
+                <button id="fbutFiltrar"> Filtrar </button>
                 <br>
                 <br>
             </div>
-
-            <div class="col-sm-2 text-left">
+            <div class="col-sm-2 text-left" id="ordem">
                 <select id="ordenar">
-                    <option value="">Ordenar</option>
-                    <option value="A-Z">A-Z</option>
-                    <option value="Data">Data de Doação</option>
+                    <option value="" >Ordenar</option>
+                    <option value="A-Z" id="az">A-Z</option>
                 </select>
+                <button id="fbutOrdenar">Ordenar</button>
             </div>
-
-            <div id="listaLivros">
-
+            <div class="col-sm-12 text-left">
+                <div id="listaLivros"></div>
             </div>
-          
         </div>
     </div>
 

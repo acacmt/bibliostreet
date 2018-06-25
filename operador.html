@@ -20,10 +20,10 @@
     <link rel="stylesheet" href="css/index.css">
 
     <!--Custom JS-->
-    <script src="js/main.js"></script>
-    <script src="js/logout.js"></script>
     <script src="js/doar.js"></script>
-    
+    <script src="js/main.js"></script>
+
+
 
 </head>
 
@@ -62,42 +62,32 @@
                 <h2>Livros</h2>
             </div>
             <div class="col-sm-10 text-left">
-                <select id="genero">
+                <select id="fgenero">
                 </select>
-                <select id="filAutor">
-                    <option value="">Autor</option>
-                    <option value=""></option>
-                    <option value=""></option>
-
-
-                </select>
-                <select id="filBibli">
-                    <option value="">Biblioteca</option>
-                    <option value=""></option>
-                    <option value=""></option>
+                <select id="fcodigo">
                 </select>
                 <br>
                 <br>
-                <button> Filtrar </button>
+                <button id="fbutFiltrar"> Filtrar </button>
                 <br><br>
             </div>
 
             <div class="col-sm-2 text-left">
                 <select id="ordenar">
                     <option value="">Ordenar</option>
-                    <option value="A-Z">A-Z</option>
-                    <option value="Pontuacao">Pontuação</option>
-                    <option value="Data">Data de Doação</option>
+                    <option value="A-Z" >A-Z</option>
                 </select>
-            </div>
-
-            <div class="col-sm-12 text-left">
-
+                <button id="fbutOrdenar">Ordenar</button>
+                <br>    
+                <br>                   
             </div>
             <br>
+            <div class="col-sm-12 text-left">
+                <div id="tblLivro">
+                </div>
+            </div>
         </div>
-        <div id="tblLivro">
-        </div>
+
     </div>
 
 </body>

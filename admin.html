@@ -14,14 +14,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    
+
     <!--Invoca a estilização em css-->
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/index.css">
 
     <!--Custom JS-->
     <script src="js/main.js"></script>
-    <script src="js/logout.js"></script>
+    <script src="js/admin.js"></script>
 
 </head>
 
@@ -43,27 +43,27 @@
                         <a href="#">Livros</a>
                     </li>
                     <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configurações
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configurações
                                 <span class="caret"></span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="confbiblio.html">Bibliotecas</a>
-                                </li>
-                                <li>
-                                    <a href="confcategorias.html">Categorias de livros</a>
-                                </li>
-                                <li>
-                                    <a href="conftags.html">Tags de livros</a>
-                                </li>
-                                <li>
-                                    <a href="confusers.html">Gestão de utilizadores</a>
-                                </li>
-                                <li>
-                                    <a href="confoutras.html">Outras configurações</a>
-                                </li>
-                            </ul>
-                        </li>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="confbiblio.html">Bibliotecas</a>
+                            </li>
+                            <li>
+                                <a href="confcategorias.html">Categorias de livros</a>
+                            </li>
+                            <li>
+                                <a href="conftags.html">Tags de livros</a>
+                            </li>
+                            <li>
+                                <a href="confusers.html">Gestão de utilizadores</a>
+                            </li>
+                            <li>
+                                <a href="confoutras.html">Outras configurações</a>
+                            </li>
+                        </ul>
+                    </li>
                     <!--OPÇÃO LOGOUT-->
                     <li id="optLogout" class="nav-item">
                         <a class="nav-link" href="#">Logout</a>
@@ -75,38 +75,34 @@
 
     <div class="container text-center">
         <div class="row content">
+
             <div class="col-sm-12 text-left">
                 <h2>Livros</h2>
             </div>
             <div class="col-sm-10 text-left">
-                <select id="genero">
+                <select id="fgenero">
                 </select>
-                <select id="filAutor">
-                </select>
-                <select id="filBibli">
+                <select id="fcodigo">
                 </select>
                 <br>
                 <br>
-                <button> Filtrar </button>
-                <br>
-                <br>
+                <button id="fbutFiltrar"> Filtrar </button>
+                <br><br>
             </div>
 
             <div class="col-sm-2 text-left">
                 <select id="ordenar">
                     <option value="">Ordenar</option>
                     <option value="A-Z">A-Z</option>
-                    <option value="Pontuacao">Pontuação</option>
-                    <option value="Data">Data de Doação</option>
                 </select>
-            </div>
-
-            <div class="col-sm-12 text-left">
-                <hr>
+                <button id="fbutOrdenar">Ordenar</button>
             </div>
             <br>
+            <div class="col-sm-12 text-left">
+                <div id="listaLivros"></div>
+            </div>
+
         </div>
-    </div>
 
 </body>
 
