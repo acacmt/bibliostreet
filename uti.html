@@ -21,9 +21,11 @@
 
     <!--Custom JS-->
     <script src="js/main.js"></script>
-    
     <script src="js/logout.js"></script>
+    <script src="js/filtros.js"></script>
     <script src="js/utilizador.js"></script>
+    
+    
 
 </head>
 
@@ -61,15 +63,14 @@
                 <h2>Livros</h2>
             </div>
             <div class="col-sm-10 text-left">
-                <select id="genero">
+                <select id="fgenero">
+                    
                 </select>
-                <select id="filAutor">
-                </select>
-                <select id="filBibli">
+                <select id="fcodigo">
                 </select>
                 <br>
                 <br>
-                <button> Filtrar </button>
+                <button onclick="filtrar()"> Filtrar </button>
                 <br>
                 <br>
             </div>
@@ -78,7 +79,6 @@
                 <select id="ordenar">
                     <option value="">Ordenar</option>
                     <option value="A-Z">A-Z</option>
-                    <option value="Pontuacao">Pontuação</option>
                     <option value="Data">Data de Doação</option>
                 </select>
             </div>
@@ -86,49 +86,7 @@
             <div id="listaLivros">
 
             </div>
-            <!-- SEGUNDA LINHA -->
-            <!--   <div class="col-sm-12" style="margin-top: 3%">
-                <div class="col-sm-2 text-center">
-                    <img src="img/capa2.jpg" alt="Norway" style="width:178px; height:178px;">
-                </div>
-
-                <div class="col-sm-10 text-left">
-                    <h3 id="bookname">
-                        <b>The storied life of A.J. Fikry</b>
-                    </h3>
-                    <h4 id="bookauthor">Gabrielle Zevin</h4>
-                    <button id="requisitar"><a href="livros.html"> ver mais</a> </button>
-                    <h6 id="bookresume">riginally published as The Collected Works of A. J. Fikry. A.J. Fikry owns a failing bookshop. His wife
-                        has just died, in tragic circumstances. His rare and valuable first edition has been stolen. His
-                        life is a wreck. Amelia is a book rep, with a big heart, and a lonely life Maya is the baby who ends
-                        up on A.J.'s bookshop floor with a note. What happens in the bookshop that changes the lives of these
-                        seemingly normal but extraordinary characters? This is the story of how unexpected love can rescue
-                        you and bring you back to real life, in a world that you won't want to leave, with characters that
-                        you will come to love.</h6>
-                </div>
-            </div>
-
-            TERCEIRA LINHA
-            <div class="col-sm-12" style="margin-top: 3%">
-                <div class="col-sm-2 text-center">
-                    <img src="img/capa2.jpg" alt="Norway" style="width:178px; height:178px;">
-                </div>
-
-                <div class="col-sm-10 text-left">
-                    <h3 id="bookname">
-                        <b>The storied life of A.J. Fikry</b>
-                    </h3>
-                    <h4 id="bookauthor">Gabrielle Zevin</h4>
-                    <button id="requisitar"><a href="livros.html"> ver mais</a> </button>
-                    <h6 id="bookresume">riginally published as The Collected Works of A. J. Fikry. A.J. Fikry owns a failing bookshop. His wife
-                        has just died, in tragic circumstances. His rare and valuable first edition has been stolen. His
-                        life is a wreck. Amelia is a book rep, with a big heart, and a lonely life Maya is the baby who ends
-                        up on A.J.'s bookshop floor with a note. What happens in the bookshop that changes the lives of these
-                        seemingly normal but extraordinary characters? This is the story of how unexpected love can rescue
-                        you and bring you back to real life, in a world that you won't want to leave, with characters that
-                        you will come to love.</h6>
-                </div>
-            </div> -->
+          
         </div>
     </div>
 
